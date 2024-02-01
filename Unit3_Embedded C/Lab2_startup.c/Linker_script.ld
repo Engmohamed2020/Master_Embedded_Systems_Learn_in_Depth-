@@ -1,5 +1,5 @@
 /* arm cortex-m3 linker script
-Made by Mina Karam
+Made by Mohamed Essam
 */
 
 MEMORY
