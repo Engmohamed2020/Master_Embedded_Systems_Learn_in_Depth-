@@ -2,7 +2,7 @@
  * EX5_C_Program_to_Show_a_Pointer_to_an_Array_Which_Contents_are_Pointer_to_Structure.c
  *
  * Created on : Dec 10, 2021
- *     Author : Mina Karam
+ *     Author : mohamed essam
  *      
  * Description:
  */
