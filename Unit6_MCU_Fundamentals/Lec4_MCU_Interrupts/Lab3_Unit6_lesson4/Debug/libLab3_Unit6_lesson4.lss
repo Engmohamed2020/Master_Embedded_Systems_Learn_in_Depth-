@@ -1,0 +1,1065 @@
+In archive libLab3_Unit6_lesson4.a:
+
+main.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         000008c4  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00000b8b  00000000  00000000  000008f8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text.GPIOD_init 00000054  00000000  00000000  00001483  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text.GPIOD_GetPinVal 0000004c  00000000  00000000  000014d7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text.GPIOD_SetPinVal 00000074  00000000  00000000  00001523  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text.EXTI_EN 00000038  00000000  00000000  00001597  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text.EXTI_init 00000058  00000000  00000000  000015cf  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text.EXTI_ClearFlag 0000003a  00000000  00000000  00001627  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text.main    0000004a  00000000  00000000  00001661  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text.__vector_1 00000162  00000000  00000000  000016ab  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .text.__vector_2 00000162  00000000  00000000  0000180d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 14 .text.__vector_3 00000160  00000000  00000000  0000196f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+
+Disassembly of section .text.GPIOD_init:
+
+00000000 <GPIOD_init>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	df 93       	push	r29
+   2:	cf 93       	push	r28
+   4:	cd b7       	in	r28, 0x3d	; 61
+   6:	de b7       	in	r29, 0x3e	; 62
+   8:	a1 e3       	ldi	r26, 0x31	; 49
+   a:	b0 e0       	ldi	r27, 0x00	; 0
+   c:	e1 e3       	ldi	r30, 0x31	; 49
+   e:	f0 e0       	ldi	r31, 0x00	; 0
+  10:	80 81       	ld	r24, Z
+  12:	8b 7f       	andi	r24, 0xFB	; 251
+  14:	8c 93       	st	X, r24
+  16:	a1 e3       	ldi	r26, 0x31	; 49
+  18:	b0 e0       	ldi	r27, 0x00	; 0
+  1a:	e1 e3       	ldi	r30, 0x31	; 49
+  1c:	f0 e0       	ldi	r31, 0x00	; 0
+  1e:	80 81       	ld	r24, Z
+  20:	87 7f       	andi	r24, 0xF7	; 247
+  22:	8c 93       	st	X, r24
+  24:	a1 e3       	ldi	r26, 0x31	; 49
+  26:	b0 e0       	ldi	r27, 0x00	; 0
+  28:	e1 e3       	ldi	r30, 0x31	; 49
+  2a:	f0 e0       	ldi	r31, 0x00	; 0
+  2c:	80 81       	ld	r24, Z
+  2e:	80 62       	ori	r24, 0x20	; 32
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	8c 93       	st	X, r24
+  32:	a1 e3       	ldi	r26, 0x31	; 49
+  34:	b0 e0       	ldi	r27, 0x00	; 0
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	e1 e3       	ldi	r30, 0x31	; 49
+  38:	f0 e0       	ldi	r31, 0x00	; 0
+  3a:	80 81       	ld	r24, Z
+  3c:	80 64       	ori	r24, 0x40	; 64
+  3e:	8c 93       	st	X, r24
+  40:	a1 e3       	ldi	r26, 0x31	; 49
+  42:	b0 e0       	ldi	r27, 0x00	; 0
+  44:	e1 e3       	ldi	r30, 0x31	; 49
+  46:	f0 e0       	ldi	r31, 0x00	; 0
+  48:	80 81       	ld	r24, Z
+  4a:	80 68       	ori	r24, 0x80	; 128
+  4c:	8c 93       	st	X, r24
+  4e:	cf 91       	pop	r28
+  50:	df 91       	pop	r29
+  52:	08 95       	ret
+
+Disassembly of section .text.GPIOD_GetPinVal:
+
+00000000 <GPIOD_GetPinVal>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	df 93       	push	r29
+   2:	cf 93       	push	r28
+   4:	0f 92       	push	r0
+   6:	cd b7       	in	r28, 0x3d	; 61
+   8:	de b7       	in	r29, 0x3e	; 62
+   a:	89 83       	std	Y+1, r24	; 0x01
+   c:	e2 e3       	ldi	r30, 0x32	; 50
+   e:	f0 e0       	ldi	r31, 0x00	; 0
+  10:	80 81       	ld	r24, Z
+  12:	48 2f       	mov	r20, r24
+  14:	50 e0       	ldi	r21, 0x00	; 0
+  16:	89 81       	ldd	r24, Y+1	; 0x01
+  18:	28 2f       	mov	r18, r24
+  1a:	30 e0       	ldi	r19, 0x00	; 0
+  1c:	81 e0       	ldi	r24, 0x01	; 1
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+  20:	00 c0       	rjmp	.+0      	; 0x22 <GPIOD_GetPinVal+0x22>
+  22:	88 0f       	add	r24, r24
+  24:	99 1f       	adc	r25, r25
+  26:	2a 95       	dec	r18
+  28:	02 f4       	brpl	.+0      	; 0x2a <GPIOD_GetPinVal+0x2a>
+  2a:	9a 01       	movw	r18, r20
+  2c:	28 23       	and	r18, r24
+  2e:	39 23       	and	r19, r25
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	89 81       	ldd	r24, Y+1	; 0x01
+  32:	88 2f       	mov	r24, r24
+  34:	90 e0       	ldi	r25, 0x00	; 0
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	a9 01       	movw	r20, r18
+  38:	00 c0       	rjmp	.+0      	; 0x3a <GPIOD_GetPinVal+0x3a>
+  3a:	55 95       	asr	r21
+  3c:	47 95       	ror	r20
+  3e:	8a 95       	dec	r24
+  40:	02 f4       	brpl	.+0      	; 0x42 <GPIOD_GetPinVal+0x42>
+  42:	ca 01       	movw	r24, r20
+  44:	0f 90       	pop	r0
+  46:	cf 91       	pop	r28
+  48:	df 91       	pop	r29
+  4a:	08 95       	ret
+
+Disassembly of section .text.GPIOD_SetPinVal:
+
+00000000 <GPIOD_SetPinVal>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	df 93       	push	r29
+   2:	cf 93       	push	r28
+   4:	00 d0       	rcall	.+0      	; 0x6 <GPIOD_SetPinVal+0x6>
+   6:	cd b7       	in	r28, 0x3d	; 61
+   8:	de b7       	in	r29, 0x3e	; 62
+   a:	89 83       	std	Y+1, r24	; 0x01
+   c:	6a 83       	std	Y+2, r22	; 0x02
+   e:	8a 81       	ldd	r24, Y+2	; 0x02
+  10:	81 30       	cpi	r24, 0x01	; 1
+  12:	01 f4       	brne	.+0      	; 0x14 <GPIOD_SetPinVal+0x14>
+  14:	a2 e3       	ldi	r26, 0x32	; 50
+  16:	b0 e0       	ldi	r27, 0x00	; 0
+  18:	e2 e3       	ldi	r30, 0x32	; 50
+  1a:	f0 e0       	ldi	r31, 0x00	; 0
+  1c:	80 81       	ld	r24, Z
+  1e:	48 2f       	mov	r20, r24
+  20:	89 81       	ldd	r24, Y+1	; 0x01
+  22:	28 2f       	mov	r18, r24
+  24:	30 e0       	ldi	r19, 0x00	; 0
+  26:	81 e0       	ldi	r24, 0x01	; 1
+  28:	90 e0       	ldi	r25, 0x00	; 0
+  2a:	02 2e       	mov	r0, r18
+  2c:	00 c0       	rjmp	.+0      	; 0x2e <GPIOD_SetPinVal+0x2e>
+  2e:	88 0f       	add	r24, r24
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	99 1f       	adc	r25, r25
+  32:	0a 94       	dec	r0
+  34:	02 f4       	brpl	.+0      	; 0x36 <GPIOD_SetPinVal+0x36>
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	84 2b       	or	r24, r20
+  38:	8c 93       	st	X, r24
+  3a:	00 c0       	rjmp	.+0      	; 0x3c <GPIOD_SetPinVal+0x3c>
+  3c:	8a 81       	ldd	r24, Y+2	; 0x02
+  3e:	88 23       	and	r24, r24
+  40:	01 f4       	brne	.+0      	; 0x42 <GPIOD_SetPinVal+0x42>
+  42:	a2 e3       	ldi	r26, 0x32	; 50
+  44:	b0 e0       	ldi	r27, 0x00	; 0
+  46:	e2 e3       	ldi	r30, 0x32	; 50
+  48:	f0 e0       	ldi	r31, 0x00	; 0
+  4a:	80 81       	ld	r24, Z
+  4c:	48 2f       	mov	r20, r24
+  4e:	89 81       	ldd	r24, Y+1	; 0x01
+  50:	28 2f       	mov	r18, r24
+  52:	30 e0       	ldi	r19, 0x00	; 0
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+  54:	81 e0       	ldi	r24, 0x01	; 1
+  56:	90 e0       	ldi	r25, 0x00	; 0
+  58:	02 2e       	mov	r0, r18
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <GPIOD_SetPinVal+0x5c>
+  5c:	88 0f       	add	r24, r24
+  5e:	99 1f       	adc	r25, r25
+  60:	0a 94       	dec	r0
+  62:	02 f4       	brpl	.+0      	; 0x64 <GPIOD_SetPinVal+0x64>
+  64:	80 95       	com	r24
+  66:	84 23       	and	r24, r20
+  68:	8c 93       	st	X, r24
+  6a:	0f 90       	pop	r0
+  6c:	0f 90       	pop	r0
+  6e:	cf 91       	pop	r28
+  70:	df 91       	pop	r29
+  72:	08 95       	ret
+
+Disassembly of section .text.EXTI_EN:
+
+00000000 <EXTI_EN>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	df 93       	push	r29
+   2:	cf 93       	push	r28
+   4:	cd b7       	in	r28, 0x3d	; 61
+   6:	de b7       	in	r29, 0x3e	; 62
+   8:	ab e5       	ldi	r26, 0x5B	; 91
+   a:	b0 e0       	ldi	r27, 0x00	; 0
+   c:	eb e5       	ldi	r30, 0x5B	; 91
+   e:	f0 e0       	ldi	r31, 0x00	; 0
+  10:	80 81       	ld	r24, Z
+  12:	80 64       	ori	r24, 0x40	; 64
+  14:	8c 93       	st	X, r24
+  16:	ab e5       	ldi	r26, 0x5B	; 91
+  18:	b0 e0       	ldi	r27, 0x00	; 0
+  1a:	eb e5       	ldi	r30, 0x5B	; 91
+  1c:	f0 e0       	ldi	r31, 0x00	; 0
+  1e:	80 81       	ld	r24, Z
+  20:	80 68       	ori	r24, 0x80	; 128
+  22:	8c 93       	st	X, r24
+  24:	ab e5       	ldi	r26, 0x5B	; 91
+  26:	b0 e0       	ldi	r27, 0x00	; 0
+  28:	eb e5       	ldi	r30, 0x5B	; 91
+  2a:	f0 e0       	ldi	r31, 0x00	; 0
+  2c:	80 81       	ld	r24, Z
+  2e:	80 62       	ori	r24, 0x20	; 32
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	8c 93       	st	X, r24
+  32:	cf 91       	pop	r28
+  34:	df 91       	pop	r29
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	08 95       	ret
+
+Disassembly of section .text.EXTI_init:
+
+00000000 <EXTI_init>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	df 93       	push	r29
+   2:	cf 93       	push	r28
+   4:	cd b7       	in	r28, 0x3d	; 61
+   6:	de b7       	in	r29, 0x3e	; 62
+   8:	a5 e5       	ldi	r26, 0x55	; 85
+   a:	b0 e0       	ldi	r27, 0x00	; 0
+   c:	e5 e5       	ldi	r30, 0x55	; 85
+   e:	f0 e0       	ldi	r31, 0x00	; 0
+  10:	80 81       	ld	r24, Z
+  12:	81 60       	ori	r24, 0x01	; 1
+  14:	8c 93       	st	X, r24
+  16:	a5 e5       	ldi	r26, 0x55	; 85
+  18:	b0 e0       	ldi	r27, 0x00	; 0
+  1a:	e5 e5       	ldi	r30, 0x55	; 85
+  1c:	f0 e0       	ldi	r31, 0x00	; 0
+  1e:	80 81       	ld	r24, Z
+  20:	8d 7f       	andi	r24, 0xFD	; 253
+  22:	8c 93       	st	X, r24
+  24:	a5 e5       	ldi	r26, 0x55	; 85
+  26:	b0 e0       	ldi	r27, 0x00	; 0
+  28:	e5 e5       	ldi	r30, 0x55	; 85
+  2a:	f0 e0       	ldi	r31, 0x00	; 0
+  2c:	80 81       	ld	r24, Z
+  2e:	84 60       	ori	r24, 0x04	; 4
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	8c 93       	st	X, r24
+  32:	a5 e5       	ldi	r26, 0x55	; 85
+  34:	b0 e0       	ldi	r27, 0x00	; 0
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	e5 e5       	ldi	r30, 0x55	; 85
+  38:	f0 e0       	ldi	r31, 0x00	; 0
+  3a:	80 81       	ld	r24, Z
+  3c:	87 7f       	andi	r24, 0xF7	; 247
+  3e:	8c 93       	st	X, r24
+  40:	a4 e5       	ldi	r26, 0x54	; 84
+  42:	b0 e0       	ldi	r27, 0x00	; 0
+  44:	e4 e5       	ldi	r30, 0x54	; 84
+  46:	f0 e0       	ldi	r31, 0x00	; 0
+  48:	80 81       	ld	r24, Z
+  4a:	80 64       	ori	r24, 0x40	; 64
+  4c:	8c 93       	st	X, r24
+  4e:	0e 94 00 00 	call	0	; 0x0 <EXTI_init>
+  52:	cf 91       	pop	r28
+  54:	df 91       	pop	r29
+  56:	08 95       	ret
+
+Disassembly of section .text.EXTI_ClearFlag:
+
+00000000 <EXTI_ClearFlag>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	df 93       	push	r29
+   2:	cf 93       	push	r28
+   4:	0f 92       	push	r0
+   6:	cd b7       	in	r28, 0x3d	; 61
+   8:	de b7       	in	r29, 0x3e	; 62
+   a:	89 83       	std	Y+1, r24	; 0x01
+   c:	aa e5       	ldi	r26, 0x5A	; 90
+   e:	b0 e0       	ldi	r27, 0x00	; 0
+  10:	ea e5       	ldi	r30, 0x5A	; 90
+  12:	f0 e0       	ldi	r31, 0x00	; 0
+  14:	80 81       	ld	r24, Z
+  16:	48 2f       	mov	r20, r24
+  18:	89 81       	ldd	r24, Y+1	; 0x01
+  1a:	28 2f       	mov	r18, r24
+  1c:	30 e0       	ldi	r19, 0x00	; 0
+  1e:	81 e0       	ldi	r24, 0x01	; 1
+  20:	90 e0       	ldi	r25, 0x00	; 0
+  22:	02 2e       	mov	r0, r18
+  24:	00 c0       	rjmp	.+0      	; 0x26 <EXTI_ClearFlag+0x26>
+  26:	88 0f       	add	r24, r24
+  28:	99 1f       	adc	r25, r25
+  2a:	0a 94       	dec	r0
+  2c:	02 f4       	brpl	.+0      	; 0x2e <EXTI_ClearFlag+0x2e>
+  2e:	84 2b       	or	r24, r20
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	8c 93       	st	X, r24
+  32:	0f 90       	pop	r0
+  34:	cf 91       	pop	r28
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	df 91       	pop	r29
+  38:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	df 93       	push	r29
+   2:	cf 93       	push	r28
+   4:	cd b7       	in	r28, 0x3d	; 61
+   6:	de b7       	in	r29, 0x3e	; 62
+   8:	0e 94 00 00 	call	0	; 0x0 <main>
+   c:	0e 94 00 00 	call	0	; 0x0 <main>
+  10:	af e5       	ldi	r26, 0x5F	; 95
+  12:	b0 e0       	ldi	r27, 0x00	; 0
+  14:	ef e5       	ldi	r30, 0x5F	; 95
+  16:	f0 e0       	ldi	r31, 0x00	; 0
+  18:	80 81       	ld	r24, Z
+  1a:	80 68       	ori	r24, 0x80	; 128
+  1c:	8c 93       	st	X, r24
+  1e:	a2 e3       	ldi	r26, 0x32	; 50
+  20:	b0 e0       	ldi	r27, 0x00	; 0
+  22:	e2 e3       	ldi	r30, 0x32	; 50
+  24:	f0 e0       	ldi	r31, 0x00	; 0
+  26:	80 81       	ld	r24, Z
+  28:	8f 7d       	andi	r24, 0xDF	; 223
+  2a:	8c 93       	st	X, r24
+  2c:	a2 e3       	ldi	r26, 0x32	; 50
+  2e:	b0 e0       	ldi	r27, 0x00	; 0
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	e2 e3       	ldi	r30, 0x32	; 50
+  32:	f0 e0       	ldi	r31, 0x00	; 0
+  34:	80 81       	ld	r24, Z
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	8f 7b       	andi	r24, 0xBF	; 191
+  38:	8c 93       	st	X, r24
+  3a:	a2 e3       	ldi	r26, 0x32	; 50
+  3c:	b0 e0       	ldi	r27, 0x00	; 0
+  3e:	e2 e3       	ldi	r30, 0x32	; 50
+  40:	f0 e0       	ldi	r31, 0x00	; 0
+  42:	80 81       	ld	r24, Z
+  44:	8f 77       	andi	r24, 0x7F	; 127
+  46:	8c 93       	st	X, r24
+  48:	00 c0       	rjmp	.+0      	; 0x4a <__SREG__+0xb>
+
+Disassembly of section .text.__vector_1:
+
+00000000 <__vector_1>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	1f 92       	push	r1
+   2:	0f 92       	push	r0
+   4:	0f b6       	in	r0, 0x3f	; 63
+   6:	0f 92       	push	r0
+   8:	11 24       	eor	r1, r1
+   a:	2f 93       	push	r18
+   c:	3f 93       	push	r19
+   e:	4f 93       	push	r20
+  10:	5f 93       	push	r21
+  12:	6f 93       	push	r22
+  14:	7f 93       	push	r23
+  16:	8f 93       	push	r24
+  18:	9f 93       	push	r25
+  1a:	af 93       	push	r26
+  1c:	bf 93       	push	r27
+  1e:	ef 93       	push	r30
+  20:	ff 93       	push	r31
+  22:	df 93       	push	r29
+  24:	cf 93       	push	r28
+  26:	cd b7       	in	r28, 0x3d	; 61
+  28:	de b7       	in	r29, 0x3e	; 62
+  2a:	2e 97       	sbiw	r28, 0x0e	; 14
+  2c:	de bf       	out	0x3e, r29	; 62
+  2e:	cd bf       	out	0x3d, r28	; 61
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	86 e0       	ldi	r24, 0x06	; 6
+  32:	0e 94 00 00 	call	0	; 0x0 <__vector_1>
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	a2 e3       	ldi	r26, 0x32	; 50
+  38:	b0 e0       	ldi	r27, 0x00	; 0
+  3a:	e2 e3       	ldi	r30, 0x32	; 50
+  3c:	f0 e0       	ldi	r31, 0x00	; 0
+  3e:	80 81       	ld	r24, Z
+  40:	80 62       	ori	r24, 0x20	; 32
+  42:	8c 93       	st	X, r24
+  44:	80 e0       	ldi	r24, 0x00	; 0
+  46:	90 e0       	ldi	r25, 0x00	; 0
+  48:	aa e7       	ldi	r26, 0x7A	; 122
+  4a:	b4 e4       	ldi	r27, 0x44	; 68
+  4c:	8b 87       	std	Y+11, r24	; 0x0b
+  4e:	9c 87       	std	Y+12, r25	; 0x0c
+  50:	ad 87       	std	Y+13, r26	; 0x0d
+  52:	be 87       	std	Y+14, r27	; 0x0e
+  54:	6b 85       	ldd	r22, Y+11	; 0x0b
+  56:	7c 85       	ldd	r23, Y+12	; 0x0c
+  58:	8d 85       	ldd	r24, Y+13	; 0x0d
+  5a:	9e 85       	ldd	r25, Y+14	; 0x0e
+  5c:	20 e0       	ldi	r18, 0x00	; 0
+  5e:	30 e0       	ldi	r19, 0x00	; 0
+  60:	4a e7       	ldi	r20, 0x7A	; 122
+  62:	55 e4       	ldi	r21, 0x45	; 69
+  64:	0e 94 00 00 	call	0	; 0x0 <__vector_1>
+  68:	dc 01       	movw	r26, r24
+  6a:	cb 01       	movw	r24, r22
+  6c:	8f 83       	std	Y+7, r24	; 0x07
+  6e:	98 87       	std	Y+8, r25	; 0x08
+  70:	a9 87       	std	Y+9, r26	; 0x09
+  72:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+  74:	6f 81       	ldd	r22, Y+7	; 0x07
+  76:	78 85       	ldd	r23, Y+8	; 0x08
+  78:	89 85       	ldd	r24, Y+9	; 0x09
+  7a:	9a 85       	ldd	r25, Y+10	; 0x0a
+  7c:	20 e0       	ldi	r18, 0x00	; 0
+  7e:	30 e0       	ldi	r19, 0x00	; 0
+  80:	40 e8       	ldi	r20, 0x80	; 128
+  82:	5f e3       	ldi	r21, 0x3F	; 63
+  84:	0e 94 00 00 	call	0	; 0x0 <__vector_1>
+  88:	88 23       	and	r24, r24
+  8a:	04 f4       	brge	.+0      	; 0x8c <__vector_1+0x8c>
+		__ticks = 1;
+  8c:	81 e0       	ldi	r24, 0x01	; 1
+  8e:	90 e0       	ldi	r25, 0x00	; 0
+  90:	9e 83       	std	Y+6, r25	; 0x06
+  92:	8d 83       	std	Y+5, r24	; 0x05
+  94:	00 c0       	rjmp	.+0      	; 0x96 <__vector_1+0x96>
+	else if (__tmp > 65535)
+  96:	6f 81       	ldd	r22, Y+7	; 0x07
+  98:	78 85       	ldd	r23, Y+8	; 0x08
+  9a:	89 85       	ldd	r24, Y+9	; 0x09
+  9c:	9a 85       	ldd	r25, Y+10	; 0x0a
+  9e:	20 e0       	ldi	r18, 0x00	; 0
+  a0:	3f ef       	ldi	r19, 0xFF	; 255
+  a2:	4f e7       	ldi	r20, 0x7F	; 127
+  a4:	57 e4       	ldi	r21, 0x47	; 71
+  a6:	0e 94 00 00 	call	0	; 0x0 <__vector_1>
+  aa:	18 16       	cp	r1, r24
+  ac:	04 f4       	brge	.+0      	; 0xae <__vector_1+0xae>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+  ae:	6b 85       	ldd	r22, Y+11	; 0x0b
+  b0:	7c 85       	ldd	r23, Y+12	; 0x0c
+  b2:	8d 85       	ldd	r24, Y+13	; 0x0d
+  b4:	9e 85       	ldd	r25, Y+14	; 0x0e
+  b6:	20 e0       	ldi	r18, 0x00	; 0
+  b8:	30 e0       	ldi	r19, 0x00	; 0
+  ba:	40 e2       	ldi	r20, 0x20	; 32
+  bc:	51 e4       	ldi	r21, 0x41	; 65
+  be:	0e 94 00 00 	call	0	; 0x0 <__vector_1>
+  c2:	dc 01       	movw	r26, r24
+  c4:	cb 01       	movw	r24, r22
+  c6:	bc 01       	movw	r22, r24
+  c8:	cd 01       	movw	r24, r26
+  ca:	0e 94 00 00 	call	0	; 0x0 <__vector_1>
+  ce:	dc 01       	movw	r26, r24
+  d0:	cb 01       	movw	r24, r22
+  d2:	9e 83       	std	Y+6, r25	; 0x06
+  d4:	8d 83       	std	Y+5, r24	; 0x05
+  d6:	00 c0       	rjmp	.+0      	; 0xd8 <__vector_1+0xd8>
+  d8:	80 e9       	ldi	r24, 0x90	; 144
+  da:	91 e0       	ldi	r25, 0x01	; 1
+  dc:	9c 83       	std	Y+4, r25	; 0x04
+  de:	8b 83       	std	Y+3, r24	; 0x03
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  e0:	8b 81       	ldd	r24, Y+3	; 0x03
+  e2:	9c 81       	ldd	r25, Y+4	; 0x04
+  e4:	01 97       	sbiw	r24, 0x01	; 1
+  e6:	01 f4       	brne	.+0      	; 0xe8 <__vector_1+0xe8>
+  e8:	9c 83       	std	Y+4, r25	; 0x04
+  ea:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  ec:	8d 81       	ldd	r24, Y+5	; 0x05
+  ee:	9e 81       	ldd	r25, Y+6	; 0x06
+  f0:	01 97       	sbiw	r24, 0x01	; 1
+  f2:	9e 83       	std	Y+6, r25	; 0x06
+  f4:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  f6:	8d 81       	ldd	r24, Y+5	; 0x05
+  f8:	9e 81       	ldd	r25, Y+6	; 0x06
+  fa:	00 97       	sbiw	r24, 0x00	; 0
+  fc:	01 f4       	brne	.+0      	; 0xfe <__vector_1+0xfe>
+  fe:	00 c0       	rjmp	.+0      	; 0x100 <__vector_1+0x100>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+ 100:	6f 81       	ldd	r22, Y+7	; 0x07
+ 102:	78 85       	ldd	r23, Y+8	; 0x08
+ 104:	89 85       	ldd	r24, Y+9	; 0x09
+ 106:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 108:	0e 94 00 00 	call	0	; 0x0 <__vector_1>
+ 10c:	dc 01       	movw	r26, r24
+ 10e:	cb 01       	movw	r24, r22
+ 110:	9e 83       	std	Y+6, r25	; 0x06
+ 112:	8d 83       	std	Y+5, r24	; 0x05
+ 114:	8d 81       	ldd	r24, Y+5	; 0x05
+ 116:	9e 81       	ldd	r25, Y+6	; 0x06
+ 118:	9a 83       	std	Y+2, r25	; 0x02
+ 11a:	89 83       	std	Y+1, r24	; 0x01
+ 11c:	89 81       	ldd	r24, Y+1	; 0x01
+ 11e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 120:	01 97       	sbiw	r24, 0x01	; 1
+ 122:	01 f4       	brne	.+0      	; 0x124 <__vector_1+0x124>
+ 124:	9a 83       	std	Y+2, r25	; 0x02
+ 126:	89 83       	std	Y+1, r24	; 0x01
+
+	// Wait 1 second
+	_delay_ms(1000);
+
+	// Turn led off
+	PORTD_Register &= (~1<<7);
+ 128:	a2 e3       	ldi	r26, 0x32	; 50
+ 12a:	b0 e0       	ldi	r27, 0x00	; 0
+ 12c:	e2 e3       	ldi	r30, 0x32	; 50
+ 12e:	f0 e0       	ldi	r31, 0x00	; 0
+ 130:	80 81       	ld	r24, Z
+ 132:	80 7c       	andi	r24, 0xC0	; 192
+
+}
+ 134:	8c 93       	st	X, r24
+ 136:	2e 96       	adiw	r28, 0x0e	; 14
+ 138:	de bf       	out	0x3e, r29	; 62
+ 13a:	cd bf       	out	0x3d, r28	; 61
+ 13c:	cf 91       	pop	r28
+ 13e:	df 91       	pop	r29
+ 140:	ff 91       	pop	r31
+ 142:	ef 91       	pop	r30
+ 144:	bf 91       	pop	r27
+ 146:	af 91       	pop	r26
+ 148:	9f 91       	pop	r25
+ 14a:	8f 91       	pop	r24
+ 14c:	7f 91       	pop	r23
+ 14e:	6f 91       	pop	r22
+ 150:	5f 91       	pop	r21
+ 152:	4f 91       	pop	r20
+ 154:	3f 91       	pop	r19
+ 156:	2f 91       	pop	r18
+ 158:	0f 90       	pop	r0
+ 15a:	0f be       	out	0x3f, r0	; 63
+ 15c:	0f 90       	pop	r0
+ 15e:	1f 90       	pop	r1
+ 160:	18 95       	reti
+
+Disassembly of section .text.__vector_2:
+
+00000000 <__vector_2>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	1f 92       	push	r1
+   2:	0f 92       	push	r0
+   4:	0f b6       	in	r0, 0x3f	; 63
+   6:	0f 92       	push	r0
+   8:	11 24       	eor	r1, r1
+   a:	2f 93       	push	r18
+   c:	3f 93       	push	r19
+   e:	4f 93       	push	r20
+  10:	5f 93       	push	r21
+  12:	6f 93       	push	r22
+  14:	7f 93       	push	r23
+  16:	8f 93       	push	r24
+  18:	9f 93       	push	r25
+  1a:	af 93       	push	r26
+  1c:	bf 93       	push	r27
+  1e:	ef 93       	push	r30
+  20:	ff 93       	push	r31
+  22:	df 93       	push	r29
+  24:	cf 93       	push	r28
+  26:	cd b7       	in	r28, 0x3d	; 61
+  28:	de b7       	in	r29, 0x3e	; 62
+  2a:	2e 97       	sbiw	r28, 0x0e	; 14
+  2c:	de bf       	out	0x3e, r29	; 62
+  2e:	cd bf       	out	0x3d, r28	; 61
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	87 e0       	ldi	r24, 0x07	; 7
+  32:	0e 94 00 00 	call	0	; 0x0 <__vector_2>
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	a2 e3       	ldi	r26, 0x32	; 50
+  38:	b0 e0       	ldi	r27, 0x00	; 0
+  3a:	e2 e3       	ldi	r30, 0x32	; 50
+  3c:	f0 e0       	ldi	r31, 0x00	; 0
+  3e:	80 81       	ld	r24, Z
+  40:	80 64       	ori	r24, 0x40	; 64
+  42:	8c 93       	st	X, r24
+  44:	80 e0       	ldi	r24, 0x00	; 0
+  46:	90 e0       	ldi	r25, 0x00	; 0
+  48:	aa e7       	ldi	r26, 0x7A	; 122
+  4a:	b4 e4       	ldi	r27, 0x44	; 68
+  4c:	8b 87       	std	Y+11, r24	; 0x0b
+  4e:	9c 87       	std	Y+12, r25	; 0x0c
+  50:	ad 87       	std	Y+13, r26	; 0x0d
+  52:	be 87       	std	Y+14, r27	; 0x0e
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+  54:	6b 85       	ldd	r22, Y+11	; 0x0b
+  56:	7c 85       	ldd	r23, Y+12	; 0x0c
+  58:	8d 85       	ldd	r24, Y+13	; 0x0d
+  5a:	9e 85       	ldd	r25, Y+14	; 0x0e
+  5c:	20 e0       	ldi	r18, 0x00	; 0
+  5e:	30 e0       	ldi	r19, 0x00	; 0
+  60:	4a e7       	ldi	r20, 0x7A	; 122
+  62:	55 e4       	ldi	r21, 0x45	; 69
+  64:	0e 94 00 00 	call	0	; 0x0 <__vector_2>
+  68:	dc 01       	movw	r26, r24
+  6a:	cb 01       	movw	r24, r22
+  6c:	8f 83       	std	Y+7, r24	; 0x07
+  6e:	98 87       	std	Y+8, r25	; 0x08
+  70:	a9 87       	std	Y+9, r26	; 0x09
+  72:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+  74:	6f 81       	ldd	r22, Y+7	; 0x07
+  76:	78 85       	ldd	r23, Y+8	; 0x08
+  78:	89 85       	ldd	r24, Y+9	; 0x09
+  7a:	9a 85       	ldd	r25, Y+10	; 0x0a
+  7c:	20 e0       	ldi	r18, 0x00	; 0
+  7e:	30 e0       	ldi	r19, 0x00	; 0
+  80:	40 e8       	ldi	r20, 0x80	; 128
+  82:	5f e3       	ldi	r21, 0x3F	; 63
+  84:	0e 94 00 00 	call	0	; 0x0 <__vector_2>
+  88:	88 23       	and	r24, r24
+  8a:	04 f4       	brge	.+0      	; 0x8c <__vector_2+0x8c>
+		__ticks = 1;
+  8c:	81 e0       	ldi	r24, 0x01	; 1
+  8e:	90 e0       	ldi	r25, 0x00	; 0
+  90:	9e 83       	std	Y+6, r25	; 0x06
+  92:	8d 83       	std	Y+5, r24	; 0x05
+  94:	00 c0       	rjmp	.+0      	; 0x96 <__vector_2+0x96>
+	else if (__tmp > 65535)
+  96:	6f 81       	ldd	r22, Y+7	; 0x07
+  98:	78 85       	ldd	r23, Y+8	; 0x08
+  9a:	89 85       	ldd	r24, Y+9	; 0x09
+  9c:	9a 85       	ldd	r25, Y+10	; 0x0a
+  9e:	20 e0       	ldi	r18, 0x00	; 0
+  a0:	3f ef       	ldi	r19, 0xFF	; 255
+  a2:	4f e7       	ldi	r20, 0x7F	; 127
+  a4:	57 e4       	ldi	r21, 0x47	; 71
+  a6:	0e 94 00 00 	call	0	; 0x0 <__vector_2>
+  aa:	18 16       	cp	r1, r24
+  ac:	04 f4       	brge	.+0      	; 0xae <__vector_2+0xae>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+  ae:	6b 85       	ldd	r22, Y+11	; 0x0b
+  b0:	7c 85       	ldd	r23, Y+12	; 0x0c
+  b2:	8d 85       	ldd	r24, Y+13	; 0x0d
+  b4:	9e 85       	ldd	r25, Y+14	; 0x0e
+  b6:	20 e0       	ldi	r18, 0x00	; 0
+  b8:	30 e0       	ldi	r19, 0x00	; 0
+  ba:	40 e2       	ldi	r20, 0x20	; 32
+  bc:	51 e4       	ldi	r21, 0x41	; 65
+  be:	0e 94 00 00 	call	0	; 0x0 <__vector_2>
+  c2:	dc 01       	movw	r26, r24
+  c4:	cb 01       	movw	r24, r22
+  c6:	bc 01       	movw	r22, r24
+  c8:	cd 01       	movw	r24, r26
+  ca:	0e 94 00 00 	call	0	; 0x0 <__vector_2>
+  ce:	dc 01       	movw	r26, r24
+  d0:	cb 01       	movw	r24, r22
+  d2:	9e 83       	std	Y+6, r25	; 0x06
+  d4:	8d 83       	std	Y+5, r24	; 0x05
+  d6:	00 c0       	rjmp	.+0      	; 0xd8 <__vector_2+0xd8>
+  d8:	80 e9       	ldi	r24, 0x90	; 144
+  da:	91 e0       	ldi	r25, 0x01	; 1
+  dc:	9c 83       	std	Y+4, r25	; 0x04
+  de:	8b 83       	std	Y+3, r24	; 0x03
+  e0:	8b 81       	ldd	r24, Y+3	; 0x03
+  e2:	9c 81       	ldd	r25, Y+4	; 0x04
+  e4:	01 97       	sbiw	r24, 0x01	; 1
+  e6:	01 f4       	brne	.+0      	; 0xe8 <__vector_2+0xe8>
+  e8:	9c 83       	std	Y+4, r25	; 0x04
+  ea:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  ec:	8d 81       	ldd	r24, Y+5	; 0x05
+  ee:	9e 81       	ldd	r25, Y+6	; 0x06
+  f0:	01 97       	sbiw	r24, 0x01	; 1
+  f2:	9e 83       	std	Y+6, r25	; 0x06
+  f4:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  f6:	8d 81       	ldd	r24, Y+5	; 0x05
+  f8:	9e 81       	ldd	r25, Y+6	; 0x06
+  fa:	00 97       	sbiw	r24, 0x00	; 0
+  fc:	01 f4       	brne	.+0      	; 0xfe <__vector_2+0xfe>
+  fe:	00 c0       	rjmp	.+0      	; 0x100 <__vector_2+0x100>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+ 100:	6f 81       	ldd	r22, Y+7	; 0x07
+ 102:	78 85       	ldd	r23, Y+8	; 0x08
+ 104:	89 85       	ldd	r24, Y+9	; 0x09
+ 106:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 108:	0e 94 00 00 	call	0	; 0x0 <__vector_2>
+ 10c:	dc 01       	movw	r26, r24
+ 10e:	cb 01       	movw	r24, r22
+ 110:	9e 83       	std	Y+6, r25	; 0x06
+ 112:	8d 83       	std	Y+5, r24	; 0x05
+ 114:	8d 81       	ldd	r24, Y+5	; 0x05
+ 116:	9e 81       	ldd	r25, Y+6	; 0x06
+ 118:	9a 83       	std	Y+2, r25	; 0x02
+ 11a:	89 83       	std	Y+1, r24	; 0x01
+ 11c:	89 81       	ldd	r24, Y+1	; 0x01
+ 11e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 120:	01 97       	sbiw	r24, 0x01	; 1
+ 122:	01 f4       	brne	.+0      	; 0x124 <__vector_2+0x124>
+ 124:	9a 83       	std	Y+2, r25	; 0x02
+ 126:	89 83       	std	Y+1, r24	; 0x01
+
+	// Wait 1 second
+	_delay_ms(1000);
+
+	// Turn led off
+	PORTD_Register &= (~1<<7);
+ 128:	a2 e3       	ldi	r26, 0x32	; 50
+ 12a:	b0 e0       	ldi	r27, 0x00	; 0
+ 12c:	e2 e3       	ldi	r30, 0x32	; 50
+ 12e:	f0 e0       	ldi	r31, 0x00	; 0
+ 130:	80 81       	ld	r24, Z
+ 132:	80 78       	andi	r24, 0x80	; 128
+
+}
+ 134:	8c 93       	st	X, r24
+ 136:	2e 96       	adiw	r28, 0x0e	; 14
+ 138:	de bf       	out	0x3e, r29	; 62
+ 13a:	cd bf       	out	0x3d, r28	; 61
+ 13c:	cf 91       	pop	r28
+ 13e:	df 91       	pop	r29
+ 140:	ff 91       	pop	r31
+ 142:	ef 91       	pop	r30
+ 144:	bf 91       	pop	r27
+ 146:	af 91       	pop	r26
+ 148:	9f 91       	pop	r25
+ 14a:	8f 91       	pop	r24
+ 14c:	7f 91       	pop	r23
+ 14e:	6f 91       	pop	r22
+ 150:	5f 91       	pop	r21
+ 152:	4f 91       	pop	r20
+ 154:	3f 91       	pop	r19
+ 156:	2f 91       	pop	r18
+ 158:	0f 90       	pop	r0
+ 15a:	0f be       	out	0x3f, r0	; 63
+ 15c:	0f 90       	pop	r0
+ 15e:	1f 90       	pop	r1
+ 160:	18 95       	reti
+
+Disassembly of section .text.__vector_3:
+
+00000000 <__vector_3>:
+
+}
+
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+   0:	1f 92       	push	r1
+   2:	0f 92       	push	r0
+   4:	0f b6       	in	r0, 0x3f	; 63
+   6:	0f 92       	push	r0
+   8:	11 24       	eor	r1, r1
+   a:	2f 93       	push	r18
+   c:	3f 93       	push	r19
+   e:	4f 93       	push	r20
+  10:	5f 93       	push	r21
+  12:	6f 93       	push	r22
+  14:	7f 93       	push	r23
+  16:	8f 93       	push	r24
+  18:	9f 93       	push	r25
+  1a:	af 93       	push	r26
+  1c:	bf 93       	push	r27
+  1e:	ef 93       	push	r30
+  20:	ff 93       	push	r31
+  22:	df 93       	push	r29
+  24:	cf 93       	push	r28
+  26:	cd b7       	in	r28, 0x3d	; 61
+  28:	de b7       	in	r29, 0x3e	; 62
+  2a:	2f 97       	sbiw	r28, 0x0f	; 15
+  2c:	de bf       	out	0x3e, r29	; 62
+  2e:	cd bf       	out	0x3d, r28	; 61
+	EXTI_ClearFlag( EXTI_LINE2 );
+  30:	85 e0       	ldi	r24, 0x05	; 5
+  32:	0e 94 00 00 	call	0	; 0x0 <__vector_3>
+	// Turn led on
+	PORTD_Register |= (1<<7);
+  36:	a2 e3       	ldi	r26, 0x32	; 50
+  38:	b0 e0       	ldi	r27, 0x00	; 0
+  3a:	e2 e3       	ldi	r30, 0x32	; 50
+  3c:	f0 e0       	ldi	r31, 0x00	; 0
+  3e:	80 81       	ld	r24, Z
+  40:	80 68       	ori	r24, 0x80	; 128
+  42:	8c 93       	st	X, r24
+  44:	80 e0       	ldi	r24, 0x00	; 0
+  46:	90 e0       	ldi	r25, 0x00	; 0
+  48:	aa e7       	ldi	r26, 0x7A	; 122
+  4a:	b4 e4       	ldi	r27, 0x44	; 68
+  4c:	8b 87       	std	Y+11, r24	; 0x0b
+  4e:	9c 87       	std	Y+12, r25	; 0x0c
+  50:	ad 87       	std	Y+13, r26	; 0x0d
+  52:	be 87       	std	Y+14, r27	; 0x0e
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+  54:	6b 85       	ldd	r22, Y+11	; 0x0b
+  56:	7c 85       	ldd	r23, Y+12	; 0x0c
+  58:	8d 85       	ldd	r24, Y+13	; 0x0d
+  5a:	9e 85       	ldd	r25, Y+14	; 0x0e
+  5c:	20 e0       	ldi	r18, 0x00	; 0
+  5e:	30 e0       	ldi	r19, 0x00	; 0
+  60:	4a e7       	ldi	r20, 0x7A	; 122
+  62:	55 e4       	ldi	r21, 0x45	; 69
+  64:	0e 94 00 00 	call	0	; 0x0 <__vector_3>
+  68:	dc 01       	movw	r26, r24
+  6a:	cb 01       	movw	r24, r22
+  6c:	8f 83       	std	Y+7, r24	; 0x07
+  6e:	98 87       	std	Y+8, r25	; 0x08
+  70:	a9 87       	std	Y+9, r26	; 0x09
+  72:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+  74:	6f 81       	ldd	r22, Y+7	; 0x07
+  76:	78 85       	ldd	r23, Y+8	; 0x08
+  78:	89 85       	ldd	r24, Y+9	; 0x09
+  7a:	9a 85       	ldd	r25, Y+10	; 0x0a
+  7c:	20 e0       	ldi	r18, 0x00	; 0
+  7e:	30 e0       	ldi	r19, 0x00	; 0
+  80:	40 e8       	ldi	r20, 0x80	; 128
+  82:	5f e3       	ldi	r21, 0x3F	; 63
+  84:	0e 94 00 00 	call	0	; 0x0 <__vector_3>
+  88:	88 23       	and	r24, r24
+  8a:	04 f4       	brge	.+0      	; 0x8c <__vector_3+0x8c>
+		__ticks = 1;
+  8c:	81 e0       	ldi	r24, 0x01	; 1
+  8e:	90 e0       	ldi	r25, 0x00	; 0
+  90:	9e 83       	std	Y+6, r25	; 0x06
+  92:	8d 83       	std	Y+5, r24	; 0x05
+  94:	00 c0       	rjmp	.+0      	; 0x96 <__vector_3+0x96>
+	else if (__tmp > 65535)
+  96:	6f 81       	ldd	r22, Y+7	; 0x07
+  98:	78 85       	ldd	r23, Y+8	; 0x08
+  9a:	89 85       	ldd	r24, Y+9	; 0x09
+  9c:	9a 85       	ldd	r25, Y+10	; 0x0a
+  9e:	20 e0       	ldi	r18, 0x00	; 0
+  a0:	3f ef       	ldi	r19, 0xFF	; 255
+  a2:	4f e7       	ldi	r20, 0x7F	; 127
+  a4:	57 e4       	ldi	r21, 0x47	; 71
+  a6:	0e 94 00 00 	call	0	; 0x0 <__vector_3>
+  aa:	18 16       	cp	r1, r24
+  ac:	04 f4       	brge	.+0      	; 0xae <__vector_3+0xae>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+  ae:	6b 85       	ldd	r22, Y+11	; 0x0b
+  b0:	7c 85       	ldd	r23, Y+12	; 0x0c
+  b2:	8d 85       	ldd	r24, Y+13	; 0x0d
+  b4:	9e 85       	ldd	r25, Y+14	; 0x0e
+  b6:	20 e0       	ldi	r18, 0x00	; 0
+  b8:	30 e0       	ldi	r19, 0x00	; 0
+  ba:	40 e2       	ldi	r20, 0x20	; 32
+  bc:	51 e4       	ldi	r21, 0x41	; 65
+  be:	0e 94 00 00 	call	0	; 0x0 <__vector_3>
+  c2:	dc 01       	movw	r26, r24
+  c4:	cb 01       	movw	r24, r22
+  c6:	bc 01       	movw	r22, r24
+  c8:	cd 01       	movw	r24, r26
+  ca:	0e 94 00 00 	call	0	; 0x0 <__vector_3>
+  ce:	dc 01       	movw	r26, r24
+  d0:	cb 01       	movw	r24, r22
+  d2:	9e 83       	std	Y+6, r25	; 0x06
+  d4:	8d 83       	std	Y+5, r24	; 0x05
+  d6:	00 c0       	rjmp	.+0      	; 0xd8 <__vector_3+0xd8>
+  d8:	80 e9       	ldi	r24, 0x90	; 144
+  da:	91 e0       	ldi	r25, 0x01	; 1
+  dc:	9c 83       	std	Y+4, r25	; 0x04
+  de:	8b 83       	std	Y+3, r24	; 0x03
+  e0:	8b 81       	ldd	r24, Y+3	; 0x03
+  e2:	9c 81       	ldd	r25, Y+4	; 0x04
+  e4:	01 97       	sbiw	r24, 0x01	; 1
+  e6:	01 f4       	brne	.+0      	; 0xe8 <__vector_3+0xe8>
+  e8:	9c 83       	std	Y+4, r25	; 0x04
+  ea:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  ec:	8d 81       	ldd	r24, Y+5	; 0x05
+  ee:	9e 81       	ldd	r25, Y+6	; 0x06
+  f0:	01 97       	sbiw	r24, 0x01	; 1
+  f2:	9e 83       	std	Y+6, r25	; 0x06
+  f4:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  f6:	8d 81       	ldd	r24, Y+5	; 0x05
+  f8:	9e 81       	ldd	r25, Y+6	; 0x06
+  fa:	00 97       	sbiw	r24, 0x00	; 0
+  fc:	01 f4       	brne	.+0      	; 0xfe <__vector_3+0xfe>
+  fe:	00 c0       	rjmp	.+0      	; 0x100 <__vector_3+0x100>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+ 100:	6f 81       	ldd	r22, Y+7	; 0x07
+ 102:	78 85       	ldd	r23, Y+8	; 0x08
+ 104:	89 85       	ldd	r24, Y+9	; 0x09
+ 106:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 108:	0e 94 00 00 	call	0	; 0x0 <__vector_3>
+ 10c:	dc 01       	movw	r26, r24
+ 10e:	cb 01       	movw	r24, r22
+ 110:	9e 83       	std	Y+6, r25	; 0x06
+ 112:	8d 83       	std	Y+5, r24	; 0x05
+ 114:	8d 81       	ldd	r24, Y+5	; 0x05
+ 116:	9e 81       	ldd	r25, Y+6	; 0x06
+ 118:	9a 83       	std	Y+2, r25	; 0x02
+ 11a:	89 83       	std	Y+1, r24	; 0x01
+ 11c:	89 81       	ldd	r24, Y+1	; 0x01
+ 11e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 120:	01 97       	sbiw	r24, 0x01	; 1
+ 122:	01 f4       	brne	.+0      	; 0x124 <__vector_3+0x124>
+ 124:	9a 83       	std	Y+2, r25	; 0x02
+ 126:	89 83       	std	Y+1, r24	; 0x01
+
+	// Wait 1 second
+	_delay_ms(1000);
+
+	// Turn led off
+	PORTD_Register &= (~1<<7);
+ 128:	e2 e3       	ldi	r30, 0x32	; 50
+ 12a:	f0 e0       	ldi	r31, 0x00	; 0
+ 12c:	80 81       	ld	r24, Z
+ 12e:	e2 e3       	ldi	r30, 0x32	; 50
+ 130:	f0 e0       	ldi	r31, 0x00	; 0
+ 132:	10 82       	st	Z, r1
+
+}
+ 134:	2f 96       	adiw	r28, 0x0f	; 15
+ 136:	de bf       	out	0x3e, r29	; 62
+ 138:	cd bf       	out	0x3d, r28	; 61
+ 13a:	cf 91       	pop	r28
+ 13c:	df 91       	pop	r29
+ 13e:	ff 91       	pop	r31
+ 140:	ef 91       	pop	r30
+ 142:	bf 91       	pop	r27
+ 144:	af 91       	pop	r26
+ 146:	9f 91       	pop	r25
+ 148:	8f 91       	pop	r24
+ 14a:	7f 91       	pop	r23
+ 14c:	6f 91       	pop	r22
+ 14e:	5f 91       	pop	r21
+ 150:	4f 91       	pop	r20
+ 152:	3f 91       	pop	r19
+ 154:	2f 91       	pop	r18
+ 156:	0f 90       	pop	r0
+ 158:	0f be       	out	0x3f, r0	; 63
+ 15a:	0f 90       	pop	r0
+ 15c:	1f 90       	pop	r1
+ 15e:	18 95       	reti
